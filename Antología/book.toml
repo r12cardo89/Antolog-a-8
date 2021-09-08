@@ -1,0 +1,14 @@
+[book]
+authors = ["Casa de Escritura"]
+language = "es"
+multilingual = false
+src = "src"
+title = "Antología número 8"
+
+
+[output.html]
+[preprocessor.links]
+# set the renderers this preprocessor will run for
+renderers = ["html"]
+some_extra_feature = true
+[preprocessor.index]

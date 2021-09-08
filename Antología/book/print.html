@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Antología número 8</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Presentacion.html"><strong aria-hidden="true">1.</strong> Presentación</a></li><li class="chapter-item expanded "><a href="El_que_no_está.html"><strong aria-hidden="true">2.</strong> El que no está</a></li><li class="chapter-item expanded "><a href="En_lugar_seguro.html"><strong aria-hidden="true">3.</strong> En lugar seguro</a></li><li class="chapter-item expanded "><a href="El_hombre_de_la_arena.html"><strong aria-hidden="true">4.</strong> El hombre de la arena</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Antología número 8</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="presentación"><a class="header" href="#presentación">Presentación</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="el-que-no-está"><a class="header" href="#el-que-no-está">El que no está</a></h1>
+<blockquote>
+<p><em>Autora: Katya Adaui</em><br />
+<em>País: Perú</em></p>
+</blockquote>
+<hr />
+<p> Rocas espesas y oscuras, nadie dudaba de la consistencia del acantilado. <br />
+ Soportaba la casa. Y al boquerón.<br />
+ Los pescadores, puntitos azul cobalto, lanchas a la suave deriva. Horizonte y paisaje y
+plenitud.</p>
+<p> Como todos los veranos, los niños entregados a la terraza. Y como todos los veranos, los escaladores. Ninguno era propiamente un escalador. El boquerón los atraía. Con sus rugidos y su noche. Cuando la marea crecía, se quedaban atrapados y pedían permiso, ¿podemos cruzar?, temblorosos y desamparados, huían del acantilado a través de la casa. Nadie los volvía a ver. <br />
+ Sobre el Boquerón se había erosionado en la roca el perfil de un Cristo anguloso, pura prominencia: quijada, tabique, ceño, frente. El mentón, blanco y arisco, los restos de aves guaneras, como una barba. No era bello, no. Lugareños y visitants buscaban sus salientes para pescar. <br />
+ Sobre la nariz del Cristo esta mañana, un padre y su hijo. El mismo peinado. Tomaban una caranda de una bolsa, caracoles que el niño había recolectado y que apestaban a calo ren sus espesura de babas negras. La caña de pescar se sostenía entre ambos.<br />
+ En la terraza los niños graznaban . Aleteaban como pájaros hambrientos . Lanzaban monedas hacia una fila de huevos duros teñidos de colores , alineados contra la pared . Las madres dedicaban sus ollas a la fiesta del teñido . Retazos de cortina , chompas de los hijos ya crecidos , algún secador viejo . En la sala , los padres bebían de vasos percudidos , se actualizaban las noticias: el mundo siempre parecía en extinción.<br />
+ Cada moneda que se incrustaba en una cáscara , algo muy imposible , no bastaba con
+quebrarla, el ganador se la podía quedar. <br />
+ ¿Vieron? ¡Es mía! <br />
+ El mar toma. El mar devuelve.<br />
+ Una ola arrancó del perfil de Cristo al padre y al hijo. Cayeron al agua helada. Bocas abiertas, ojos tremendous.<br />
+ Algunos niños recibieron el salto con celebración, como un regalo de las vacaciones, como un faro que se enciende.<br />
+ ¡Están nadando, yo también quiero! <br />
+ ¡Y yo! <br />
+ Solo el mayor de todos corrió hacia la sala. <br />
+ Y una moneda, faz brillosa, resbaló y raspó una loseta. <br />
+ Hijo y padre no nadaba ni alzaban los brazos. Apenas flotaban, boya y lastre, al rumor de las olas. <br />
+ Una mudez pesó sobre la terraza. Los niños y los adultos pegaron los cuerpos a la baranda. Una gaviota aprovechó las claras hasta que mostraron el color del sol. <br />
+ Mi padre había tenido un hijo, lo vio morir. <br />
+ Pidió: traigan una cuerda. <br />
+ Alguien que estaba amodorrado leyendo el periódico corrió al depósito. Soga de amarrar los carros en caravana en la carretera. Hemos lanzado hombres, perros, monos, moscas, canciones, libros al espacio. Esta cuerda reboot contra el acantilado, rozó piedras blancas, mar negro y espuma. <br />
+ Las madres vieron las cabezas siendo arrastradas hacia el Boquerón. Enviaron a sus hijos a la sala: <br />
+ A jugar adentro, ¡ahora! <br />
+ Vamos por un bote, dijo mi padre y partió con mis tíos. En el muelle, Pescadores que habían terminado sus faenas ofrecieron su lancha a motor. <br />
+ Para cuando rodearon el boquerón navegando contra el viento salado y alcanzaron al padre, el niño se hundió. <br />
+ Lo condujo de regreso a la ciudad. Le preguntó si quería escuchar música y respondió que no. Mi padre no dijo una palabra más hasta que el hombre le habló. Antes de que se bajara, le recomendó tener otro hijo. A mí me nombró como el que no está.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="en-lugar-seguro"><a class="header" href="#en-lugar-seguro">En lugar seguro</a></h1>
+<blockquote>
+<p><em>Autora: Katya Adaui</em><br />
+<em>País: Perú</em></p>
+</blockquote>
+<hr />
+<p> ¿Cómo te sientes? ¿Tienes miedo?<br />
+ La voz ronca y espesa. Inconfundible.<br />
+ No, no tengo.<br />
+ Pues yo creo que deberías.<br />
+ Cortó.<br />
+ Bajó las persianas y atisbó entre las rendijas.<br />
+ Un estacionamiento. Un hombre uniformado daba indicaciones. Atardecía. Cuatro luces
+delanteras se apagaron.<br />
+ Apenas se hubo instalado, dejado su ropa en la repisa, y el cepillo y la pasta de dientes en el baño, sonó el teléfono.<br />
+ No importa cuánto se esconda, huía con todo lo que tenía, hallaba siempre cómo encontrarla. <br />
+ Una buena ducha caliente. Entró en el vapor. El agua lloviendo contra su nuca. Sentirse bien, casi. El jabón olía a desinfectante. Se cubrió con la bata y se echó en la cama. La almohada era alta y dura. La hubiera aplastado antes, cómo no me di cuenta. La molestia se reinstaló en su cuello, no se fue. Agotada, se quedó dormida.</p>
+<p>El ajetreo, muy temprano. El abrir y cerrar de puertas. El ruido metálico de ruedas,
+palanganas y charolas. El olor de las sábanas en el aire.
+Permiso.
+Le vendan las piernas.
+Contra la trombosis, le explican.
+Reina el diminutivo. Coagulito, mamita, hijita, corazoncito, tranquilita, ¿ya?
+Soy una momia, piensa.
+Un disparador de juego infantil con primos y vecinos. Se envolvían con papel higiénico,
+de los pies a la cabeza, liberando los ojos con disímiles agujeros. Los ojos y nada más. Ver pesea todo. Su hermano brincaba empapelado, uno, dos, cinco, ocho, y se caía y se levantaba y zas, al
+suelo, de panza, codo, y las carcajadas, fisuras del vendaje. Solo era papel, un terco enredo.
+Causaba daño. Las madres se volvían locas: ¡Basta de gastar! ¡¿Qué les pasa?! Sin saber cómo
+abarcarlo: que los hijos fantaseen con desaparecer es un juego muy serio. Un entrenamiento nada
+absurdo. Preservarse de la primera honda angustia. Esconderte y que nadie te vaya a buscar.
+La punta de un bastón se deja ver.
+Los mocasines.
+La encontró. Mejor adelantarse:
+Hola, mamá.
+¿Cómo se te ocurre? Estoy recién operada y me cuelgas el teléfono. Pero estas señoritas
+tan serviciales me ayudaron.
+Ahora vamos a retirarte el calzón. Uy, estás con tu período. ¿Nos ayuda, señora?, las
+enfermeras a su madre. Ella dice: No. Y mira hacia otro lado. La hija se mueve incómoda. Las
+enfermeras no entienden. La siguen embalsamando con inmensa amabilidad. ¿Lista?
+La conducen al ascensor, una enfermera a cada lado.
+Echada, cuello estirado –punzada, ojalá ninguna otra más nunca más– alcanza a leer
+un letrerito en la puerta de su habitación. Va completando la frase escrita a lápiz: Quiero que....
+Cada niño dejaba un dibujo y un deseo. Habían olvidado retirarlo. Junto a una rana obesa: Quiero
+que mami y papi se queden a dormir.
+El bastón de su madre detrás. La hija susurra: Más rápido. No la escuchan. La camilla
+retrasa su ingreso al ascensor.
+La madre traba la puerta:
+Hija, no te quiero asustar, pero tu doctor dejó paralítico al último paciente que operó.
+Las puertas del ascensor se cierran. Tiene a su madre alojada en la garganta.
+Cuando tuvo paperas, le cedió su cama matrimonial, tras convencer al padre. Su hermano
+estaba sano. Lo llevó a la habitación y lo sentó junto a la hija enferma:
+Será mejor si se me contagian ahora.
+Con la varicela se repitió el ciclo.
+Enfermarse a la vez. Un concepto de su madre.Los hermanos, una misma cama; síntoma, prurito. Fiebre y escozor. El cuerpo padecido.
+Una sola piel. Compartir postración y aburrimiento. Les lanzaba el control remoto del televisor y
+cómics; los volvía a encerrar. Mataban las horas adivinándole el pasado a los objetos en las
+azoteas. Un torso sin brazos ni piernas, la vida de los maniquíes y su lejano misterio. Ante
+cualquier ruido, los pasos, el giro del pomo de la puerta, volvían a la cama de un envión. Los
+padres, vueltos hermanos, dormían en las habitaciones de los hijos. Durante el lapso de la
+enfermedad, la madre los cuidaba, se acurrucaba entre ellos, los mimaba y custodiaba, sin
+asomos de cansancio, sin caducar nunca.
+Su hermano es padre de mellizos. Se pregunta si reunirá a sus hijos en un cuarto a
+contagiarse.
+Desde hace nueve años, trabaja en el aeropuerto despachando pasajeros.
+¿No te agota no establecer vínculos con nadie?, le preguntó.
+Es lo que me gusta. Les resuelvo sus problemas y se van.
+La única vez que les regaló pasajes –debió cancelar su luna de miel, su mujer tenía
+preeclampsia– viajaron juntas a la playa.
+La madre le pidió el asiento del pasillo, necesitaría levantarse unas cuatro o cinco veces,
+desentumecer las piernas. Se había olvidado las medias antivárices.
+Me puede dar trombosis y es la muerte. A la vecina le pasó.
+¿A cuál?
+¿A cuál va a ser?
+¿No sigue viva?
+Sí, pero sintió cómo el coágulo le atravesaba el corazón.
+Rumbo al aeropuerto se tomó dos pastillas para dormir. Había prometido compartirle una.
+Roncó todo el vuelo. Con la mandíbula desencajada y el torso rígido, los brazos en cruz sobre el
+pecho. Imposible moverla. Le saltó por encima al ir y volver del baño.
+Me hubieras tapado, le dijo al despertar. Me enfríe. Ahora voy a estar con carraspera y
+me va a costar hablar.
+En el bus hacia el hotel todo incluido, la madre se sentó junto a la ventanilla:
+Las palmeras tan bellas. Te apuesto que no tienes ni idea pero son muy sedientas.
+¿Tendrán agua suficiente? Pero desconfía si no ves a nadie echado en su sombra, es porque tepuede caer un coco y romperte la cabeza y ni te digo. Mira a esos negros, ¿qué te parece? Viajan
+adelante solo porque juegan básquetbol. Nosotras deberíamos ir allí. O al menos yo por mi edad.
+Se calzó los audífonos. No tenía ni una sola canción en el celular. Sacudió baquetas y
+zarandeó platillos. Su madre se dirigió a la espalda del muchacho sentado adelante:
+Hijito...
+No hablar español.
+¿Cómo que no?, ¿cómo que no?
+Las calles bullían, ingresaban al bus amplificadas, frases que sonaban dulces, agolpadas y
+nuevas y que la hija no podía ni quería traducir.
+La madre insistió, incluso cuando el paisaje se transformó en desierto y se quedaron solas
+con el chofer mirándolas de reojo por el retrovisor:
+¿Notas este silencio? ¡Qué delicia! ¿Hace cuánto no escuchas un silencio igual?
+La sala de operaciones, un búnker de granito. Suena una salsa. Hay música todavía. La
+reconoce. Tararea y hasta le provoca silbar. La pequeña radio va encajada a la mesa de aluminio.
+Cuenta siete enfermeras. Le sonríen y le hablan trivialidades, voz condescendiente. Están
+vestidas a la par, con uniformes pediátricos en tonos pastel. Árboles, perros, nube y elefante. Una
+le pregunta por su religión. Ninguna. La enfermera anota y el anestesiólogo se presenta:
+Dios fue el primer anestesiólogo, ¿sabes por qué?
+No.
+Le arrancó a Adán la costilla sin dolor.
+Ella se concentra en aborrecerlo, en atender el espacio, tiene algo de cementerio y de
+fiesta, ¿dónde está el doctor?, que no venga todavía. El doctor se acerca a saludarla. Abre la
+mano y le revela, como un vanidoso, como un mago, el titanio. Mide tanto como la uña de un
+pulgar. Vas a quedar como nueva. Ella se asombra de lo ínfimo imprescindible.
+Mientras la droga ingresa por su brazo, alucina que el doctor es Blanca Nieves y las
+enfermeras disfrazadas de infancia, los siete enanitos, ¿dónde está la manzana envenenada?:
+Quiero ver a mi padre.
+El anestesiólogo:
+Siempre está entre nosotros. No lo dudes.Le habían dado otra opción. Quitarle un pedazo de cadera, injertarlo en el cuello en
+reemplazo del disco herniado. Tu movilidad se reducirá en veinte por ciento, eres joven,
+piénsalo. Ella lo había pensado: todavía no estoy como mi madre. Y pagó un monto alucinante
+por el titanio.
+¿A qué hora me operan?
+Acabas de salir.
+Han pasado siete horas.
+¿Cómo estuvo todo?
+El anestesiólogo: No te dormías, contaste hasta catorce. Eres mi nuevo récord de
+anestesia general.
+Despierta sentada.
+Ha dormido toda la noche en la misma posición. ¿En qué momento salió de cuidados
+intermedios y pasó a cuarto? Le pedían: Orina, mamita, para no ponerte sonda. ¿Qué soñó? No
+recuerda. La anestesia general es una elipsis sin recuento. Desmemoria. Morirse y quizás volver.
+¿Y qué había sucedido en el intervalo en que su cuerpo había dado todo de sí mismo? Tiene
+puesto el collarín. Mueve los pies, los brazos, las manos. Puede hacerlo. Articula. De pronto, una
+sed bárbara. Se estira y logra alcanzar un vaso, lo han dejado muy cerca. Tragar duele. Bebe más
+despacio. Hasta que tuvo la crisis en la oficina ignoraba un peso notorio, el de la cabeza. Ocho
+kilos. El cerebro: kilo y medio. Es difícil llevar la cabeza sobre los hombros. En la ambulancia
+rumbo al hospital intentó sostenérsela. Un calambre persistente; la espalda rígida, como después
+de un golpe. Tortícolis, contractura, ¿qué era este dolor que la hacía convalidar de una vez y para
+siempre sus propias limitaciones? Es neurológico, no importa cuánta rehabilitación hagas,
+volverá.
+La operarían seis meses después de morir su padre.
+La instalaron en el pabellón infantil. No tenemos más cuartos, estamos excedidos,
+disculpe. Y debe ingresar en unas horas a cirugía.
+Calcomanías de superhéroes en las paredes. Lo demás era adulto. La cama alta. El
+crucifijo. Las ventanas con vista al estacionamiento. El deseo contra la puerta, escrito a lápiz.
+Tienes cuello de cisne, es precioso, le decía su madre. Cuello de mierda, se dijo.El doctor la visitó:
+Desde ahora debes evitar los sobresaltos.
+Significado de sobresalto: un bache, un estornudo, un saludo, los vivía como si se hubiera
+estrellado.
+La cicatriz rosada sobre uno de los pliegues del cuello, mimetizándose. Una línea larga.
+El hilo se absorberá.
+Pasaría un año con el giro robótico.
+Vas a quedar como nueva.
+Nadó, recuperó la soberanía, y su placa no escandalizó en los aeropuertos. Se imaginó
+madre, que podría prestarse a ser una buena madre, con toda su complejidad y fascinación; sintió
+desapego por esta idea y la devaluó y la retomó.
+A despertarse.
+Escucha también el golpe del bastón: no es la ronda médica. Sus párpados se resisten.
+Seguir flotando en el desinflamante intravenoso.
+A despertarse.
+Sube las persianas, la luz asimilándose y desembocando en la cama.
+Lleva una bolsa negra en la mano. Se agacha a darle un beso. Ve la boca acercándose a su
+mejilla. Labial rojo de larga duración.
+No, le dice.
+Mira lo que te he traído, tus favoritos.
+Desenfunda la bolsa y saca trres chocolates. Pero quiero esconderlos para que tus amigos
+no se los lleven. Sé como eres. Todo lo regalas. ¿Dónde los pongo?
+Camina lento. Panea la habitación como una cámara de vigilancia. ¿Dónde, dónde? Sus
+labios están abiertos. Necesita un escondite. Abre la repisa, va hacia el baño. Los ojos de la hija
+la persiguen. Regalará los chocolates apenas pueda. Su respiración se acelera. Sobresalto. No
+puede girar. ¿A dónde se ha movido? En su campo visual la conoce de memoria. Siempre es un
+punto ciego. Ya está situada junto a ella. Su brazo todavía ingravidez, un amago.
+Por supuesto. Este es el lugar Seguro.
+Le coloca la bolsa con chocolates detrás del cuello. En el espacio libre entre el collarín y
+la almohada.Se defiende arrancándose la bolsa de la nuca. La catapulta.
+La madre: Malagradecida. Y sale de la habitación balbuceando.
+Silencio.
+La hija se apodera del repliegue. Está en su propio cuerpo, en la resurgida calma. La
+bolsa negra, al fondo de la habitación, contra la puerta del baño.
+Todas las veces que su madre la cobijó durante la enfermedad. El cuidado receloso; sabía
+componer una ilusión, destruir la palabra inoportuna. Están contagiadas ahora: huesos las unen y
+huesos las fallan. Su madre ansía su parálisis. Convertirla en su proyecto. Tenerla a disposición
+inamovible, a merced de un territorio acotado: su propia cama. Las dos equiparadas en el
+accidente de la soledad.
+Vuelve. Le sonríe. Sus ojos azules, un arroyo quieto a primera hora de la mañana.
+Ojalá papá estuviera aquí conmigo.
+Y ojalá tú fueras como tu hermano.
+Mamá.
+¿Qué?
+Si pudiera, te ahorcaría.
+Y yo a ti. La apunta con el bastón: Si no tuvieras esa coraza.
+Lo baja y pesca diestramente el asa de la bolsa:
+Dejemos los chocolates junto a tu ropa, por aquí. Suspira: ¿A qué hora llegan tus amigos?
+En un rato.
+Avísame para irme antes.
+No te preocupes, tampoco quieren verte.
+La madre rodea la cama. Toma la colcha y la estira por encima de las sábanas. La cubre
+hasta el collarín. Inclinada sobre ella, amolda, aprieta la tela contra el cuerpo. Los hombros, el
+pecho, el vientre, las piernas, los pies. La presión de las manos. La contornean y le dan forma. La
+forma de un sarcófago. No puede moverse. Apenas consigue inhaler.
+¿De verdad no has sentido miedo?
+Miedo es lo único que tengo.
+No te preocupes, corazón. Mamá siempre te encuentra. Mamá siempre te cuida.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="el-hombre-de-la-arenasup-classfootnote-referencea-href11asup"><a class="header" href="#el-hombre-de-la-arenasup-classfootnote-referencea-href11asup">El hombre de la arena<sup class="footnote-reference"><a href="#1">1</a></sup></a></h1>
+<blockquote>
+<p><em>Autor: E.T.A. Hoffman</em><br />
+<em>País: Estados Unidos</em></p>
+</blockquote>
+<hr />
+<p>De Nataniel a Lotario</p>
+<p> »Seguro que estaréis inquieto porque no escribo desde hace mucho, mucho tiempo. Mi madre estará enfadada y Clara pensará que hago aquí vida de loco y que olvido su imagen angelical que tengo grabada en mi mente, pero no es así. Diariamente os recuerdo a todos y contemplo la figura encantadora de Clara, con su cándida sonrisa y sus ojos claros, igual que cuando regresaba a casa... Pero, ¡cómo podré escribiros en el estado en que me hallo!... ¡Me ha sucedido algo espantoso! Torvos presentimientos de un destino amenazador y fatal se ciernen sobre mí como negros nubarrones, impidiendo que penetre un rayo de sol... Sólo a ti voy a decirte lo que me ha sucedido. Me imagino que te reirás locamente cuando lo sepas... ¡Ah, mi querido Lotario! ¡Cómo te diré para que lo comprendas que lo que me ha sucedido hace algunos días ha trastornado realmente mi vida! Si estuvieras aquí, tú mismo podrías verlo, pero seguro que me conside- ras un visionario chiflado... En resumidas cuentas, el espana la violencia, Nataniel quiso repararla comprando alguna cosa al traficante Coppola.<br />
+ Eligió un pequeño anteojo, cuya montura le llamó la atención por su exquisito trabajo, y, para probarlo, miró a través de la ventana. Nunca en su vida había tenido un anteojo con el que pudiera verse con tanta claridad y pureza. Instintivamente, miró hacia la estancia de Spalanzani; Olimpia estaba sentada como de costumbre, ante la mesita, con los brazos apoyados y las manos cruzadas. Por vez primera, Nataniel veía detenidamente el hermoso semblante de Olimpia. Únicamente los ojos le parecieron fijos, como muertos. Pero, a medida que miraba más y más a través del anteojo, le pareció como si los ojos de Olimpia irradiasen pálidos rayos de luna. Tuvo la sensación de que por vez primera nacía en ella la capacidad de ver; y cada vez más intensas brillaban sus miradas. Nataniel se quedó como galvanizado mirando a la ventana, observando a la bella y celeste Olimpia, pero le hizo volver en sí el ruido que hacía Coppola, al tiempo que repetía: <br />
+ —<em>Tre zechini</em> —tres ducados. <br />
+ Nataniel, que se había olvidado por completo del óptico, se apresuró a pagarle: <br />
+ —¿No os parecen unos buenos anteojos, eh? ¡Qué buenos anteojos! — preguntó Coppola con su odiosa voz ronca y la sonrisa maliciosa.<br />
+  Sí, sí, sí... —repuso Nataniel disgustado—.¡Adiós querido amigo! <br />
+  Coppola abandonó la habitación, no sin lanzar antes algunas miradas de reojo. Apenas bajó las escaleras, dejó escapar una innoble carcajada. «Se ríe de mí —pensó Nataniel— porque me ha hecho pagar el anteojo a un precio mucho más caro de lo que vale.» Mientras profería en voz baja estas palabras, le pareció oír un profundo gemido en la habitación, que le estremeció. Nataniel sintió tal miedo que sele cortó la respiración. Pronto diose cuenta de que era él mismo quien había suspirado. «Clara tenía razón —se dijo— al considerarme un visionario; pero lo que más me atormenta ahora y me parece absurdo... incluso más que absurdo, es la idea de que he pagado los anteojos demasiado caros, y eso me inquieta; y no sé cuál es el motivo...»</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Der Sandmann.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
